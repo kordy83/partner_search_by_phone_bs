@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<data>
+
+        <record id="view_repair_order_formm" model="ir.ui.view">
+            <field name="name">repair.form</field>
+            <field name="model">repair.order</field>
+            <field name="inherit_id" ref="repair.view_repair_order_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='partner_id']" position="after">
+                    <field name="phone_id" widget="phone" options="{'enable_sms': false}"/>
+                    <field name="mobile_id" widget="phone" options="{'enable_sms': false}"/>
+                    <field name="street_id"/>
+                    <field name="street2_id"/>
+                    <field name="city_id"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="view_repair_order_treee" model="ir.ui.view">
+            <field name="name">repair.tree</field>
+            <field name="model">repair.order</field>
+            <field name="inherit_id" ref="repair.view_repair_order_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='partner_id']" position="after">
+                    <field name="street_id" optional="hide"/>
+                    <field name="street2_id" optional="hide"/>
+                    <field name="city_id" optional="hide"/>
+                </xpath>
+            </field>
+        </record>
+
+
+    </data>
+</odoo>
